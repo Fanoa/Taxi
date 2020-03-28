@@ -12,10 +12,7 @@ from preprocess import preprocess
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import BaggingRegressor
 from modelRegressor import modelRegressor
-<<<<<<< HEAD
 from sklearn.tree import DecisionTreeRegressor
-=======
->>>>>>> 265004997adba0f1a9c6a2a865d2aa4aab7aa7fb
 
 class model (BaseEstimator):
     def __init__(self):
@@ -28,13 +25,7 @@ class model (BaseEstimator):
         self.num_labels=1
         self.is_trained=False
         self.preprocess = preprocess()
-<<<<<<< HEAD
         self.mod = modelRegressor(DecisionTreeRegressor(criterion='friedman_mse', max_depth=100, random_state=150, splitter='random'), bootstrap=True)
-
-=======
-        self.mod = modelRegressor(None, True, False, 1.0, 1.0, 300, 10, False, 0, False)
-    
->>>>>>> 265004997adba0f1a9c6a2a865d2aa4aab7aa7fb
     def fit(self, X, y):
         '''
         This function should train the model parameters.
@@ -72,19 +63,13 @@ class model (BaseEstimator):
         if X.ndim>1: num_feat = X.shape[1]
         y = np.zeros([num_test_samples, self.num_labels])
 
-<<<<<<< HEAD
         X_preprocess = self.preprocess.fit_transform(X)
-=======
-
-        X_preprocess = self.preprocess.transform(X)
->>>>>>> 265004997adba0f1a9c6a2a865d2aa4aab7aa7fb
         y = self.mod.predict(X_preprocess)
         return y
     
 
 
     def save(self, path="./"):
-<<<<<<< HEAD
         return self
 
     def load(self, path="./"):
@@ -93,23 +78,10 @@ class model (BaseEstimator):
     def test():
         # Load votre model
         mod = modelRegressor(DecisionTreeRegressor(criterion='friedman_mse', max_depth=100, random_state=150, splitter='random'))
-=======
-        pass
-    
-
-    def load(self, path="./"):
-        pass
-
-
-    def test():
-        # Load votre model
-        mod = modelRegressor(None, True, False, 1.0, 1.0, 300, 10, False, 0, False)
->>>>>>> 265004997adba0f1a9c6a2a865d2aa4aab7aa7fb
         X_random = np.random.rand(1,59)
         Y_random = np.array([np.random.randint(200, 850)])
         mod.fit(X_random, Y_random)
         Y_random_predict = mod.predict(X_random)
-<<<<<<< HEAD
         if Y_random_predict == Y_random:
             print("Test Réussi")
         else:
@@ -118,13 +90,3 @@ class model (BaseEstimator):
 
     if __name__ == "__main__":
         test()
-=======
-        if Y_random_predict == Y_random: 
-            print("Test Réussi")
-        else:
-            print("Test Echoué")
-            
-
-    if __name__ == "__main__":
-        test()
->>>>>>> 265004997adba0f1a9c6a2a865d2aa4aab7aa7fb
