@@ -7,6 +7,7 @@ class preprocess :
     def __init__(self):
         self.reg = IsolationForest(max_samples=100)
 
+        
     def fit_transform (self, X) :
         #Outliers Detection
         self.reg.fit(X)

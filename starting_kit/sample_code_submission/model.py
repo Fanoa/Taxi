@@ -26,6 +26,8 @@ class model (BaseEstimator):
         self.is_trained=False
         self.preprocess = preprocess()
         self.mod = modelRegressor(DecisionTreeRegressor(criterion='friedman_mse', max_depth=100, random_state=150, splitter='random'), bootstrap=True)
+    
+    
     def fit(self, X, y):
         '''
         This function should train the model parameters.
@@ -47,6 +49,7 @@ class model (BaseEstimator):
         self.mod.fit(X_preprocess, y)
         self.is_trained = True
 
+    
     def predict(self, X):
         '''
         This function should provide predictions of labels on (test) data.
@@ -68,13 +71,14 @@ class model (BaseEstimator):
         return y
     
 
-
     def save(self, path="./"):
         return self
 
+    
     def load(self, path="./"):
         return self
 
+    
     def test():
         # Load votre model
         mod = modelRegressor(DecisionTreeRegressor(criterion='friedman_mse', max_depth=100, random_state=150, splitter='random'))
